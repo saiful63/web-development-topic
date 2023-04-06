@@ -1,0 +1,74 @@
+show database
+
+create database school
+
+drop database school
+
+
+create table student_details(
+roll int,
+    name varchar(20),
+    gender varchar(20),
+    gpa double(3,2),
+    city varchar(20)
+
+
+
+);
+
+rename table student_details to student_detail;
+
+insert into student_detail 
+values
+(1,'saiful','Male',3.13,'Narayanganj'),
+(2,'raihan','Male',3.10,'Rupganj'),
+(3,'akash','Male',3.40,'Narayanganj'),
+(4,'nafisa','Female',3.13,'Narayanganj');
+
+select distinct city from student_detail;
+
+select * from student_detail 2;
+
+select * from student_detail limit 2,3;
+
+select name from student_detail order by name;//assending sort
+
+select name,gpa from student_detail order by gpa;
+
+select name,gpa from student_detail order by name desc;
+
+select * from student_detail 
+where roll between 3 and 4;
+
+select * from student_detail 
+where roll=4;
+
+select * from student_detail 
+where roll!=4;
+
+select * from student_detail
+where city='Narayanganj' and (gpa<=3.10 or gender = 'male');
+
+//when need to match multiple value in one column
+SELECT * FROM `product` WHERE category IN ('men', 'women', 'child')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

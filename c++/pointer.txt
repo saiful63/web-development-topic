@@ -1,0 +1,14 @@
+The pointer in C++ language is a variable, it is also known as locator or indicator that points to an address of a value.
+
+1.&:it is used to get the address of the variable.
+2.*:it is used to get the value of the variable that the pointer is pointing to.
+
+AS a example:
+   int x=6;
+   int *p;
+   p = &x;
+   
+   cout<<x<<endl; give  output of value x
+   cout<<&x<<endl; give address of value x as output
+   cout<<p<<endl; give otput of value x through pointer
+   cout<<*p<<endl; give address of value x as output through pointer

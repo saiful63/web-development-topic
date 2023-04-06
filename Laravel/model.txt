@@ -1,0 +1,1 @@
+Laravel is an MVC based PHP framework. In MVC architecture, ‘M’ stands for ‘Model’. A Model is basically a way for querying data to and from the table in the database. Laravel provides a simple way to do that using Eloquent ORM (Object-Relational Mapping). Every table has a Model to interact with the table.

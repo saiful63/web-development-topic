@@ -1,0 +1,44 @@
+visibility:hidden hides the element, but it still takes up space in the layout. display:none removes the element from the document. It does not take up any space.
+
+
+So, the difference between display: “none”; and visibility: “hidden”; right from the name itself we can tell the difference as display: “none”; completely gets rids of the tag, as it had never existed in the HTML page whereas visibility: “hidden”; just makes the tag invisible, it will still on the HTML page occupying space it’s just invisible.
+
+Both of the cannot remove element from dom.html:
+
+ <div class="container">
+    <div class="fr">
+
+    </div>
+    <div class="sc">
+      
+    </div>
+    <div class="th">
+      
+    </div>
+  </div>
+  
+  
+  css:
+  
+   .container{
+    width: 100%;
+  }
+  .fr,.sc,.th{
+    width: 200px;
+    height: 100px;
+    
+  }
+
+  .fr{
+    background-color: red;
+  }
+
+  .sc{
+    background-color: blue;
+    visibility: hidden;
+    display: none;
+  }
+
+  .th{
+    background-color: green;
+  }

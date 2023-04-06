@@ -1,0 +1,3 @@
+Eloquent is an object relational mapper (ORM) that is included by default within the Laravel framework. An ORM is software that facilitates handling database records by representing data as objects and which provides an extremely easy way to communicate with a database.We need not write tradiional sql command for database operation.
+
+If Post is a model, for fetching data Post::all() funcion is necessaty that can be used in next operation.

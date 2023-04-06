@@ -1,0 +1,14 @@
+When a user visits a webpage in their web browser, the browser sends a request to the server for the HTML content of the page. The server responds with an HTTP response that includes the HTML code for the page.
+
+When the browser receives this response, it begins the process of downloading the HTML content. This involves receiving the data from the server over the internet and storing it locally on the user's device.
+
+The browser then parses the HTML code, which means it analyzes the code and determines how to render it on the user's screen. This process involves interpreting the HTML tags and their attributes to determine the structure of the page, as well as any associated resources (such as images, CSS stylesheets, or JavaScript files) that need to be downloaded.
+
+Once the browser has parsed the HTML code and identified all necessary resources, it sends additional HTTP requests to the server to retrieve those resources. These requests may be sent in parallel or sequentially, depending on the browser's configuration and the characteristics of the resources being downloaded.
+
+In summary, "the browser will then begin downloading the HTML content" means that the browser has received an HTTP response containing the HTML code for a webpage, and is now in the process of downloading that code in order to parse it and render the webpage for the user.
+
+
+Meaning of download here:
+
+The html is downloaded from the server, but it is usually only stored in the systems memory, not saved to disc.it is a set of instructions for how the browser should display the contents. Some browsers interpret and execute these instructions differently, and that's why browser incompatibility is a big deal for web developers.

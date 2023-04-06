@@ -1,0 +1,1 @@
+This type of incident can happen that js is not loading or taking time ,for this other html,css do not load and user cannot see anything.To solve this problem by providing css prior to js by which html,css will load first and user need not to wait for content nad afterthat js will load to provide interaction facility with those html element. 

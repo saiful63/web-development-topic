@@ -1,0 +1,62 @@
+justify-content — controls alignment of all items on the main axis. align-items — controls alignment of all items on the cross axis.
+
+justify-content — controls alignment of all items on the main axis.
+align-items — controls alignment of all items on the cross axis.
+align-self — controls alignment of an individual flex item on the cross axis.it 5 property like align item
+
+As a example align-self
+
+Html:
+
+ <div class="parent">
+   <div class="child-1 child">
+    <h1>Child One</h1>
+   </div>
+
+   <div class="child-2 child">
+      <h1>Child Two</h1>
+   </div>
+   <div class="child-3 child">
+      <h1>Chilad Three</h1>
+   </div>
+
+   </div>
+   
+   
+   
+   Css:
+   
+   .parent{
+      width: 1200px;
+      display: flex;
+      height: 200vh;
+      background-color: rosybrown;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      
+     }
+    .child{
+     width: 200px;
+     
+      
+    }
+
+    .child-1{
+      background-color: goldenrod;
+      align-self: center;
+      
+    }
+
+    .child-2{
+      background-color: yellowgreen;
+      
+    }
+
+    .child-3{
+      background-color: green;
+    }
+    
+    
+    
+    Here all item align-item:flex-start but specifically align-self:center is given to child-1 class.so it will behave according the given style and will visible in center.

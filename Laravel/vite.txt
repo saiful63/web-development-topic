@@ -1,0 +1,10 @@
+Vite is a modern frontend build tool that provides an extremely fast development environment and bundles your code for production.You can use Vite to set up a development environment for frameworks like Vue and React, and even for a vanilla JavaScript app with a dev server and hot reloading in just three commands.
+
+
+dd stands for "Dump and Die."
+
+Laravel's dd() function can be defined as a helper function, which is used to dump a variable's contents to the browser and prevent the further script execution.
+
+Example:
+
+dd($array); 

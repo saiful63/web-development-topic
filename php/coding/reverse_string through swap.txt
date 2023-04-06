@@ -1,0 +1,11 @@
+        $frist = 0;
+        $last = sizeof($s)-1;
+        $repetation = floor(sizeof($s)/2);
+
+        for($i=0;$i<=$repetation-1;$i++){
+        $temp = $s[$i];
+        $s[$i] = $s[$last];
+        $s[$last] = $temp;
+
+        $last--;
+        }

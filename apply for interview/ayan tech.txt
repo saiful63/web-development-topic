@@ -1,0 +1,6 @@
+- A bachelor's degree in Computer Science, Software Engineering, or a related field.
+- Strong understanding of programming concepts and familiarity with Object-Oriented Programming (PHP).
+- Familiarity with web development technologies such as HTML, CSS, JavaScript, and frameworks such as Laravel, Vue.js, and React are a plus.
+- Familiarity with software development tools such as GIT is a plus.
+- Strong problem-solving and analytical skills.
+- A passion for technology and a desire to learn and grow as a developer.

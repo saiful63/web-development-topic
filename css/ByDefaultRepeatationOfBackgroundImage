@@ -1,0 +1,1 @@
+By default, a background-image is repeated both vertically and horizontally. Tip: The background image is placed according to the background-position property. If no background-position is specified, the image is always placed at the element's top left corner.

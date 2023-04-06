@@ -1,0 +1,1 @@
+419 page expired Laravel error occurs when the valid CSRF token missing in the post request or when the page takes too long to send the post request which leads to expiring the CSRF token.

@@ -1,0 +1,4 @@
+
+What Is a Route? The route is a way of creating a request URL for your application. 
+
+this is two types web route used for web url  and api route used for creating api url.

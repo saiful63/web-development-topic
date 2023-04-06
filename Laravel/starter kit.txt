@@ -1,0 +1,1 @@
+Starter kit gives facility to developer to use some build in facility such as authentication and others.

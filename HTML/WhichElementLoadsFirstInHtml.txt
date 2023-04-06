@@ -1,0 +1,5 @@
+HTML pages are interpreted on the fly and read in their entirety from top to bottom - so, the first elements will load first, the last last.
+
+For instance, if you place a script at the top of the body then it will be executed prior to any elements within the body loading; whereas if you place is at the end of the body, all elements within the body will load then the script will execute.
+
+The order of loading for external sources such as scripts and images, though, might differ from browser to browser (while for the most part following the same conventions) - the idea is that connections will be open to request these resources and then things like size, speed and latency come into question - and these are most often still sequential and blocking.
