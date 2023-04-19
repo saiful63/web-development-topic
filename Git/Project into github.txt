@@ -1,0 +1,13 @@
+git add .
+git commit -m "gh"
+git remote add origin url
+git push origin master
+
+
+To update remote repository:git push --set-upstream origin master
+
+When anyone necessity of update:
+git add .
+git commit -m "* added"
+git push
+
