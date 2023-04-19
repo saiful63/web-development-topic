@@ -5,7 +5,7 @@ It means that when parent data is deleted of one table then releted  data of ano
 As a example,A author can write multiple book.Here,author is column of author table and book is column of book table and and author table have relation with book table.author_id act as foreign  key in book table.Now cascade means that if one row deleted from author table then related one row will be deleted from book table.
 
 
-onDelete('set null')
+*onDelete('set null')
 
 it actually don't delete the related table row,instead of that it put null value of that row .The reason behind of it that anyone can have necessity of it further.
 
