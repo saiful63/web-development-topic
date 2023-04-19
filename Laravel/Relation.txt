@@ -1,0 +1,313 @@
+*One to One Relationship
+
+Where a record in one table is exactly assosiated with one record of another table.
+
+As a example ,user have relationship with phone mode.If i explain,there will be two table one is user another is phone.User information will be stored in users table and numbe will be stored in phones table.By using foreign key(user_id) in phones table ,fetching of user with his corresponding number can be get.
+
+phones table:
+
+public function up()
+    {
+        Schema::create('phones', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('number');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');//foreign key
+
+            $table->timestamps();
+        });
+    }
+    
+    
+*Models/User.php:
+
+public function phone(){
+        return $this->hasOne(Phone::class);
+    }
+    
+*Models/Phone.php:
+
+public function user(){
+        return $this->belongsTo(User::class);
+    }
+    
+    
+*web.php:
+
+Route::get('/dashboard',[RelationController::class,'show'])
+
+
+*RelationController.php:
+
+ public function show(){
+        
+        
+        $users = User::all();
+
+         
+        return view('dashboard',compact('users'));
+    }
+    
+    
+    
+*dashboard.blade.php:
+
+  <table class="table-auto table-row border-spacing-y-2">
+                        
+                        <thead>
+                        <tr>
+                            <th class="font-bold p-2 border-b border-l border-r border-t bg-indigo-200 text-black text-left">Name</th>
+                            <th class="font-bold p-2 border-b border-l border-r border-t  bg-indigo-200 text-black  text-left">Number</th>
+                        </tr>
+                        </thead>
+                        
+                        <tbody>
+                        @foreach($users as $item)
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-2 border-b border-l border-r border-t text-left">{{ $item->name }}</td>
+                
+                            <td class="p-2 border-b border-l border-r border-t text-left">{{$item->phone->number ?? 'None'}}</td>
+                        </tr>
+                        @endforeach
+                        
+                        </tbody>
+
+                      
+  </table>
+  
+  
+  
+  
+  
+*One to Many Relationship
+
+Where a record in one table is  assosiated with many record of another table.
+
+As a example,relation of a post with comment model.
+
+*Post.php:
+
+public function comment(){
+        return $this->hasMany(Comment::class);
+    }  
+    
+    
+*Comment.php:
+
+public function post(){
+        return $this->belongsTo(Post::class);
+    }
+  
+ 
+ *posts table:
+ 
+ Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('post');
+            $table->timestamps();
+        }); 
+        
+
+
+
+*comments table:
+
+
+Schema::create('comments', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('post_id');
+            $table->string('comment');
+
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->timestamps();
+        });
+  
+  
+  
+  
+  *web.php:
+  
+  Route::get('/dashboard',[RelationController::class,'show'])
+  
+  
+  *RelationController.php:
+  
+  
+  public function show(){
+        
+        
+        $posts = Post::with('comment')->get();
+
+        $br = '<br/>';
+        $hr = '<hr style="border:1px solid green;margin:5px 0px 5px 0px">';//styling <hr>
+        return view('dashboard',compact('posts','br','hr'));//passing hr and br to view
+        
+        
+        //For belongTo relationship
+
+        // $comment = Comment::all();
+
+        // return view('dashboard',compact('comment'));
+    }
+    
+    
+    
+*dashboard.blade.php:
+
+
+  <tbody>
+                        @foreach($posts as $item)
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-2 border-b border-l border-r border-t text-left">
+                                
+                               {{ $item->post }}
+                           
+                            </td>
+                
+                            <td class="p-2 border-b border-l border-r border-t text-left">
+                                
+                                @foreach($item->comment as $comments)
+                                {{$comments->comment}}
+                                
+                                 {!! $hr !!}//styled <hr> as  output
+                                @endforeach
+                                
+                            </td>
+                        </tr>
+                        @endforeach
+                        
+                        </tbody>
+  
+  
+  
+ #Many to many:
+ 
+  a many-to-many relationship is where more than one record in a table is related to more than one record in another table.
+  
+  As a example ,a teacher can take many courses such as English,Bangla,Arabic.On the  otherhand  one course can be conducted by many teacher such as Arabic course can be conducted by teacher saiful,riaz,zubaer.
+  
+  
+ *professors table:
+ 
+ Schema::create('professors', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });  
+  
+  
+  
+ *subjects table:
+ 
+ Schema::create('subjects', function (Blueprint $table) {
+            $table->id();
+            $table->string('subject');
+            $table->timestamps();
+        }); 
+        
+        
+        
+  
+  
+*professor_subject,is junction table that help to create many to many relationshgip
+
+ Schema::create('professor_subject', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('professor_id');
+            $table->unsignedBigInteger('subject_id');
+
+            $table->foreign('professor_id')->references('id')->on('professors')->onDelete('cascade');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+            $table->timestamps();
+        });  
+  
+  
+  
+  
+  
+*Professor.php:
+
+
+public function subject(){
+        return $this->belongsToMany(Subject::class);
+    }  
+  
+  
+    
+*Subject.php:
+
+
+public function professor(){
+        return $this->belongsToMany(Professor::class);
+    }
+    
+    
+    
+*web.php:
+
+Route::get('/dashboard',[RelationController::class,'show'])
+
+
+
+*RelationController.php:
+
+$author = Professor::with('subject')->get();
+
+
+*dashboard.blade.php:
+
+    
+    
+  @foreach($course_by_professor as $item)
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-2 border-b border-l border-r border-t text-left">
+                                
+                               {{ $item->name }}
+
+                              
+                           
+                            </td>
+                
+                            <td class="p-2 border-b border-l border-r border-t text-left">
+                                
+                                @foreach($item->subject as $subjects)
+                                {{$subjects->subject}}
+                                
+                               
+                                
+                                @endforeach
+                                
+
+
+                                 
+                                
+                            
+                            </td>
+                        </tr>
+                        @endforeach    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    

@@ -1,0 +1,59 @@
+dash.blade.php:
+
+ <form action="/store" method="post">
+        @csrf
+    <input type="text" placeholder="Subject" name="sb">
+    <input type="text" placeholder="Dept" name="dp">
+    <input type="text" placeholder="Session" name="sd">
+    <input type="text" placeholder="Type" name="ty">
+    <button type="submit">Add</button>
+   </form>
+
+
+NormalController.php:
+
+$ins =Subject::create([
+       
+        'Subject'=>$request->sb,
+         'Dept'=>$request->dp,
+         'Session'=>$request->sd,
+         'type'=>$request->ty
+
+      ]);
+
+      if($ins){
+        echo"Success";
+      }
+
+
+
+
+Subject.php:
+
+ protected $fillable = [
+        'Subject',
+        'Dept',
+        'Session',
+        
+    ];
+    
+
+subjects table:
+
+Schema::create('subjects', function (Blueprint $table) {
+            $table->id();
+            $table->string('Subject');
+            $table->string('Dept');
+            $table->string('Session');
+            $table->integer('type');
+            $table->timestamps();
+        });  
+        
+        
+   
+   Here you can see in Subject.php,i  added type input field to insert but it was absent in fillable attribute above.So it give an error known as "Field 'type' doesn't have a default value".
+   
+   
+   
+   
+          

@@ -1,0 +1,1 @@
+Laravel includes built-in authentication and session services which are typically accessed via the Auth and Session facades. These features provide cookie-based authentication for requests that are initiated from web browsers. They provide methods that allow you to verify a user's credentials and authenticate the user.

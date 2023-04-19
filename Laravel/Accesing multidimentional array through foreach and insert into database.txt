@@ -1,0 +1,14 @@
+ $store=array(
+            array('Shoe','Book','Clothes'),
+            array('raha@gmail.com','rumi@gmail.com','mubarak@gmail.com')
+        );
+        for($row=0;$row<1;$row++){
+            for($col=0;$col<=2;$col++){
+            Product::create([
+            'order-name'=>$store[0][$col],
+            'order-email'=>$store[1][$col],
+            'user_id'=>1,
+            ]);
+            }
+         
+        }

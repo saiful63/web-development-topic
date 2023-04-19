@@ -1,0 +1,28 @@
+#Laravel :9
+
+*mies table:
+
+Schema::create('mies', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->longText('desc');
+            $table->timestamps();
+        });
+        
+        
+*MyFactory.php:
+
+
+return [
+            'title'=>fake()->name(),
+            'desc'=>fake()->sentence(),
+        ];
+        
+        
+        
+        
+*DatabaseSeeder.php:
+
+My::factory(10)->create();    
+
+    

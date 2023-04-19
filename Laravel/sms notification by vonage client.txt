@@ -1,0 +1,31 @@
+*web.php:
+
+Route::get('/notif',[NotificationController::class,'index']);
+
+*NotificationController.php:
+
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+
+
+class NotificationController extends Controller implements ShouldQueue
+{
+    public function index(){
+        $basic  = new \Vonage\Client\Credentials\Basic("0d3e4533", "Vf9I6vBzid9NnRjN");
+        $client = new \Vonage\Client($basic);
+
+        $response = $client->sms()->send(
+           
+            new \Vonage\SMS\Message\SMS("8801848315008", 'Raihan', 'You are welcome from raihan brand')
+        );
+
+        $message = $response->current();
+
+        if ($message->getStatus() == 0) {
+            echo "The message was sent successfully\n";
+        } else {
+            echo "The message failed with status: " . $message->getStatus() . "\n";
+        }
+    }
+}
+

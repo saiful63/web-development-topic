@@ -1,0 +1,10 @@
+After succesfull installation of vite,some strp need to be followed.
+
+*User.php
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+class User extends Authenticatable implements MustVerifyEmail
+{
+
+}

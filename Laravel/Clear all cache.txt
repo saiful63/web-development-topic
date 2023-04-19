@@ -1,0 +1,1 @@
+To clear all Laravel's cache, just run the following command: $ php artisan optimize:clear
