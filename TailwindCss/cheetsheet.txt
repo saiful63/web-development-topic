@@ -1,0 +1,1 @@
+*mx-auto:to center a container

@@ -1,0 +1,62 @@
+The difference between the figure and the image tag is pretty simple. The image tag is used to embed the image in an HTML document whereas the figure tag is used to semantically organize the content of an image in the HTML document.
+It is critical to note that these two elements are not interchangeable. Both of these elements are equally important in their respective places. You cannot use a figure tag to embed an image in the HTML5 document, try adding the src attribute to the figure tag in the same manner as of img tag, and you will notice that the image is not displayed. So, for adding the image, nothing has changed in the HTML5 documentation we still use the img tag for the same. Then what has changed?
+Before HTML5 if there was a need for us to add the caption for an image, we had to use some p tag or span tag, and by defining some class to it, we could style those captions. So, there wasn`t a way to add a caption to the image semantically through HTML, but with the figure tag, there is a dedicated tag just for the captions of the image known as <figcaption>. This tag by default separates the styles of the usual paragraph with the captions. But using a figcaption tag every time you use a figure tag is not mandatory, it is optional.
+
+
+*General process:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Image without figure tag</title>
+</head>
+
+<body>
+    <p>
+        See below, I will be attaching an image of laptop.
+    </p>
+    <div>
+        <img src="Image/img.jpg" alt="Image of a laptop">
+        <p>
+            Here is a image of laptop.
+        </p>
+    </div>
+</body>
+
+</html>
+
+
+*Figure-caption process:
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Image with figure tag</title>
+</head>
+
+<body>
+    <p>
+        See below, I will be attaching an image of laptop.
+    </p>
+    <figure>
+        <img src="Image/img.jpg" alt="Image of a laptop">
+        <figcaption>Here is a image of laptop.</figcaption>
+    </figure>
+</body>
+
+</html>
+
+See the difference! As you can notice I haven`t used any styling properties in the code, still there is a difference in the alignment of the image and the caption, the figure tag is responsible for all of this. 
+
+Another facility:it tells the web browser that an image is going to embedded under this tag.
+
+
+
+Figure tag is not only restricted to images, but we can also use figure tag to wrap up some audios, videos or even some charts or tables, blocks of codes.
+
+

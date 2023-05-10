@@ -1,0 +1,31 @@
+Meta tags are important because they impact how your site appears in the SERPs(Search engine result page) and how many people will be inclined to click through to your website.It is used for seo. They will therefore impact your traffic and engagement rates, which can impact your SEO and rankings. Meta tags are an important part of a solid SEO strategy. Although some tags might not have a direct impact on rankings, they do impact how your site appears within the digital ecosystem. Additionally, they could be a factor in many non-traditional search results, like Knowledge Graph, Google image search, voice, and more. No brand should neglect them when developing content.
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head
+
+
+Title tags: the title of your page, which should be unique for every page you publish
+Meta description: a description of the content on the page
+Viewport tag: impacts how your content appears on mobile devices
+Robots: can be used to indicate content that you want a “noindex” or a “nofollow”
+Hreflang tags: allows the search engine to identify the language and country you want content displayed for when you have an international audience
+Canonical tags: used to specify the primary or principle version of the page
+Open graph tags: used to specify which assets show up in title and image by default when sharing links on social sites
+Content type: impacts how your page is rendered in the browser
+
+
+
+
+
+*How do I use meta tags?
+
+Many of these meta tags, such as the title tags and the meta description length, will impact how relevant your site appears in the SERP.  When users receive their list of results, they will see your site title and a short description of your content -- the meta description. Users scan this information to see if they should click on a particular result. Including your main keyword naturally in these sections can boost your apparent relevance on the SERP, increasing your click-through rate. Since your SEO title tag also appears in the tab for your web page, when users have multiple pages open, this title can help entice the user to click back over to your content and further engage with your page.what is a meta tag in html
+
+With the other tags, including the content type and viewport tags, you will help Google better understand your type of content. Viewport tags will ensure that your content provides mobile users with a smooth, positive experience. Since Google’s mobile update and the recent discussion about the shift towards a mobile-first algorithm, brands want to ensure that their content has been prepared for mobile users in every way possible.
+
+Other tags, including the Robots and hreflang tags, are useful when you have particular restrictions for your content, such as content you do not want indexed or if your content was written specifically for people in certain countries. Filling out these tags will help ensure that your content is indexed appropriately and displayed to the right audience. Since content showing up for the wrong language or country or duplicate content penalties materializing in response to content you did not want indexed will hurt your rankings and reputation, these tags are essential.

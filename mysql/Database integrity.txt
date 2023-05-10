@@ -1,0 +1,1 @@
+Data integrity refers to the overall accuracy, completeness, and reliability of data. 

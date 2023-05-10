@@ -1,0 +1,55 @@
+ $tag=[
+            [
+             'name'=>'Personal Branding',
+             'image'=>'https://cdn2.ramseysolutions.net/dynamic-webp/media/blog/business/professional-growth/personal-brand.jpg/640w.webp',
+             
+
+            ],
+            [
+             'name'=>'Beyond story',
+             'image'=>'https://miro.medium.com/v2/resize:fit:828/format:webp/1*Yp9bj3XCL0s_fbGWUmGA2g.jpeg'
+
+            ],
+            [
+             'name'=>'Extrovert',
+             'image'=>'https://www.columnfivemedia.com/wp-content/uploads/2021/03/Why-you-need-to-tell-brand-story.jpg'
+
+            ],
+
+            [
+             'name'=>'Story Branding',
+             'image'=>'https://www.impactplus.com/hs-fs/hubfs/what-is-the-storybrand-framework.jpg?length=1200&name=what-is-the-storybrand-framework.jpg'
+
+            ]
+
+        ];
+        
+        
+*Multidimentional array:
+
+ <?php
+ $str = [
+   
+   [
+    'name'=>'Saiful',
+    'number'=>[
+      'number one'=>'018467',
+      'number two'=>'0173289'
+      ]
+   ],
+   
+   [
+    'name'=>'Raihan',
+    'number'=>[
+      'number one'=>'0134467',
+      'number two'=>'0153289'
+      ]
+   ]
+   
+   ];
+foreach($str as $generate){
+  echo $generate['number']['number one']."<br/>";
+  echo $generate['number']['number two']."<br/>";
+}
+
+?>

@@ -1,0 +1,58 @@
+Namespaces in PHP is similar to namespaces in C++ that encapsulates items by reusing names in order to avoid name conflicts. It permits in re-declaration of the same classes or interface or functions or constant functions in a distinct namespace without receiving the fatal error.
+Example:
+
+<?php
+namespace sample;
+function func()
+{
+echo 'Never give up! Keep trying. . .';
+}
+// Resolves to the function
+func();
+// Explicitly resolves to the function
+namespace\func();
+?>
+
+*In the cases where a declaration of namespace is done globally, it can be declared without using any name, as shown below.
+
+Code:
+
+<?php
+namespace {
+// Global . . . !
+}
+?>
+
+
+
+*In some cases, multiple namespaces can be used within one PHP code, as shown below.
+
+Code:
+
+<?php
+namespace sam {
+}
+namespace samp {
+}
+namespace {
+}
+?>
+
+
+*Suppose the namespace is declared after defining the function, as shown below. Then, what will happen?
+
+Code:
+
+<?php
+function func()
+{
+echo 'Never give up! Keep trying. . .';
+}
+// Resolves to the function
+func();
+namespace sample;
+// Explicitly resolves to the function
+namespace\func();
+?>
+Yes…. An error will be displayed, as shown below. That is, namespace should be defined at the beginning of the program.
+

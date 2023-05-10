@@ -1,0 +1,261 @@
+The core relation of StoryTell database
+
+*One platform can produce many course(hasMany)
+*Author can create multiple course,one course can be conducted by multiple authors(belongsToMany)
+*Multiple can have of one course's.
+
+#tags table:
+
+Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('image');
+            $table->timestamps();
+        });
+        
+        
+#platforms table:
+
+ Schema::create('platforms', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+           
+
+            $table->timestamps();
+        }); 
+        
+        
+#authors table:
+
+ Schema::create('authors', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
+        
+        
+#courses table:
+
+ Schema::create('courses', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->binary('img');
+            $table->longText('desc');
+            $table->string('price');
+            $table->string('duration');
+            $table->string('difficulty_level')->comment('0=Beginner,1=Intermediate,2=Advance');
+
+            $table->unsignedBigInteger('tag_id');
+            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('platform_id');
+
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+            $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        Schema::create('author_course', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('course_id');
+
+
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+
+            $table->timestamps();
+        });
+        
+ #Author.php:
+ 
+ 
+  public function course(){
+        return $this->belongsToMany(Course::class);
+    }
+    
+    
+    
+#course.php:
+
+ public function tag(){
+        return $this->hasMany(Tag::class);
+    }
+
+    public function author(){
+        return $this->belongsToMany(Author::class);
+    }
+
+    public function duration($value){
+     if($value==0){
+        return '0-5 Hours';
+     }
+     else if($value==1){
+        return '5-10 Hours';
+     }
+     else{
+        return '10+ Hours';
+     }
+    }
+
+    public function DifficultyLevel($value){
+      if($value==0){
+        return 'Beginner';
+      }
+      else if($value==1){
+        return 'Intermediate';
+      }else{
+        return 'Advance';
+      }
+    }
+
+
+
+
+#platform.php:
+
+
+ public function course(){
+        return $this->hasMany(Course::class);
+    }
+    
+    
+    
+    
+    
+#CourseFactory.php:
+
+return [
+            'name'=>fake()->name(),
+            'img'=>fake()->imageUrl($width=200, $heigt=200),
+            'desc'=>fake()->sentence(),
+            'price'=>fake()->randomDigit(),
+            'duration'=>fake()->numberBetween(0,2),
+            'difficulty_level'=>fake()->numberBetween(0,2),
+            'tag_id'=>Tag::all()->random()->id,
+            'author_id'=>Author::all()->random()->id,
+            'platform_id'=>Platform::all()->random()->id,
+
+        ];    
+    
+    
+    
+ #DatabaseSeeder.php
+ 
+ 
+ $tag=[
+            [
+             'name'=>'Personal Branding',
+             'image'=>'https://cdn2.ramseysolutions.net/dynamic-webp/media/blog/business/professional-growth/personal-brand.jpg/640w.webp'
+
+            ],
+            [
+             'name'=>'Beyond story',
+             'image'=>'https://miro.medium.com/v2/resize:fit:828/format:webp/1*Yp9bj3XCL0s_fbGWUmGA2g.jpeg'
+
+            ],
+            [
+             'name'=>'Extrovert',
+             'image'=>'https://www.columnfivemedia.com/wp-content/uploads/2021/03/Why-you-need-to-tell-brand-story.jpg'
+
+            ],
+
+            [
+             'name'=>'Story Branding',
+             'image'=>'https://www.impactplus.com/hs-fs/hubfs/what-is-the-storybrand-framework.jpg?length=1200&name=what-is-the-storybrand-framework.jpg'
+
+            ]
+
+        ];
+        foreach($tag as $item){
+            Tag::create([
+                'name'=>$item['name'],
+                'image'=>$item['image']
+            ]);
+        }
+
+        $author=['Saiful','Raihan','Himel'];
+        foreach($author as $item){
+            Author::create([
+                'name'=>$item,
+            ]);
+        }
+
+
+        $platform=['Training with Suri','Beyond','RiseUp'];
+        foreach($platform as $item){
+            Platform::create([
+                'name'=>$item,
+            ]);
+        }
+
+        //50 user create
+        User::factory(50)->create();
+
+        //100 course create
+        Course::factory(100)->create();
+
+        $course_attach = Course::all();
+
+
+       //pivot table creation for many to many relationship
+       
+        foreach($course_attach as $course_rel){
+          $authors = Author::all()->random(rand(1,3))->pluck('id')->toArray();
+          $course_rel->author()->attach($authors);
+        }   
+    
+    
+web.php:
+
+Route::get('/platform/{id}',[PlatformController::class,'show']);
+
+
+ #platformController.php:
+ 
+  public function show(){
+        $platform = Platform::with('course')->get();
+        return $platform;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+           
+        
+                               

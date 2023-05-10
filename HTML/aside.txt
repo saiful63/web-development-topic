@@ -1,0 +1,43 @@
+The <aside> tag defines some content aside from the content it is placed in.
+It is used create aside content  and have special meaning through defining aside tag that aside  element is going to put .
+
+The aside content should be indirectly related to the surrounding content.
+
+Tip: The <aside> content is often placed as a sidebar in a document.
+
+Note: The <aside> element does not render as anything special in a browser. However, you can use CSS to style the <aside> element (see example below).
+
+.container{
+    width: 100%;
+  }
+
+  .cont{
+    display: flex;
+    width: 80%;
+  }
+
+  .ar{
+    width: 50%;
+  }
+
+ 
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cont">
+      <article class="ar">
+      <h1>Article</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero maxime voluptatibus quisquam temporibus quod dolore, dolor id! Provident nobis et explicabo similique nemo nam inventore in assumenda maiores? Impedit architecto explicabo repellat libero? Eius assumenda in animi impedit mollitia dolorum at ad, officia temporibus, rem sit, laboriosam voluptates ratione eveniet!
+
+      </p>
+    </article>
+
+    <aside>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque, alias?</p>
+    </aside>
+    </div>
+    
+  </div>
+</body>
+</html>

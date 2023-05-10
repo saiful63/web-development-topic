@@ -1,0 +1,7 @@
+its value is a boolean type that indicates whether or not the data being submitted by the form will be validated beforehand. By making this false, forms can be submitted without validation which helps users to resume later also
+
+<form action="" novalidate>
+  <input type="text" name="name" required>
+  <input type="text" name="email">
+  <input type="submit">
+</for

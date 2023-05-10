@@ -1,0 +1,1 @@
+Subquery is used in some outer query and that outer query will have to do ordering anyway, so there's no point ordering the subquery.

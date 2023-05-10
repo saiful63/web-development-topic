@@ -1,0 +1,16 @@
+<video width="400" controls>
+  <source src="mov_bbb.mp4" type="video/mp4">
+
+//This element is used to specify subtitles, caption files or other files containing text, that should be visible when the media is playing.Tracks are formatted in WebVTT format (.vtt files).
+  <track src="fgsubtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+  <track src="fgsubtitles_no.vtt" kind="subtitles" srclang="no" label="Norwegian">
+</video>
+
+<audio controls>
+  <source src="horse.mp3" type="audio/mpeg">
+</audio>
+
+//This tag defines a container for an external resource, such as a web page, a picture, a media player, or a plug-in application.
+<embed src="https://www.w3schools.com/tags/tag_embed.asp" type="text/html" width="100%" heigth="100%">
+
+<source> tag is used in video ,audio or other media file.    

@@ -1,0 +1,64 @@
+Index:
+
+Index is a database object that makes data retrieval faster.as a example:search for particular record in database.
+
+Index key:column on which we create index.
+
+General Types of indexes:
+
+1.Clustered index:A clustered index determines the physical order of data in a table.For this reason,a table can have only one clustered index.Note that id column is marked as primary key if no clustered index already exists on the table.
+
+create clustered index me on  emp(gender desc,salary asc)
+
+2.Non clustered index:stores data in one location and indices at another location.The index contain pointers to the location of that data.A single table can have many non-clustered indexe.
+
+A nonclustered index is analogous to an index in a text book.The data is stored in one place,the index is another place.The index will have pointers to the storage location of the data.
+
+Since,the nonclustered index is stored separately from the actual data,a table can have more than one nonclustered index. 
+
+create nonclustered index me on  emp(gender desc,salary asc)
+
+
+
+#Differences:
+1.Only one clustered index per table,where  as you can have more than one nonclustered index.
+
+2.Clustered index is faster than a non clusterd index because ,the clustered index has to refer back to table,if the selescted column is not present in the index.
+
+3.Clustered index determines the storage order of rows in the table,and hence doesn't require additional disk space,but where as anon clustered index is stored separately from the table,additional storage space is required.
+
+
+
+#Data retrival process of sql:
+
+1.Table scan(when index is not there)-does linear search where searches for each and every record.
+
+2.Indexes unique scan:unique index or index on primary key.
+
+3.Index range scan:where condition has equality or range predicate.
+
+#Different type of indexes:
+
+1.Default index: BTREE,used when we have huge amount of data sush as million.
+
+create index IndexName ON table(column)
+
+create index i1 on employee(salary)
+
+2.Unique index():It is used to enforce uniqueness of key values in the index.
+create unique index me on emp(empno)
+
+3.composite index(when use index in multiple column):
+crete index me on emp(dept,sal)
+
+4.function index(index which gives facility to uppercas and lowercase function):
+create index me on emp(upper(nmae))
+
+
+#Important note:
+*Index are generally created on columns that are frequently used in where clause.
+*Index for primary key and unique constraints are automatically created and dropped during table creation and deletion.
+*index improve performance in select but hamper in insert,update,delete operation.Not a good idea to create index on every column.
+*Index contains redundant data already existing in table hence consumes space.
+*Each table can have only one clustered index usually created on a primary key.
+*No limit on non clustered index.

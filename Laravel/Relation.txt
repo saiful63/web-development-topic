@@ -289,9 +289,29 @@ $author = Professor::with('subject')->get();
     
     
     
+*DatabaseSeeder.php :
+
+
+        $author=['Saiful','Raihan','Himel'];
+        foreach($author as $item){
+            Author::create([
+                'name'=>$item,
+            ]);
+        }
+
+
+        $platform=['Training with Suri','Beyond','RiseUp'];
+        foreach($platform as $item){
+            Platform::create([
+                'name'=>$item,
+            ]);
+        }
+
+        //50 user create
+        User::factory(50)->create();  
     
-    
-    
+     //100 course create
+        Course::factory(100)->create();
     
     
     
